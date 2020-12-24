@@ -2,7 +2,7 @@
 
 # Getting in shape
 
-## A colection of solutions to problems available on the projecteuler.net website.
+## A collection of solutions to problems available at projecteuler.net
 
 ### This project aims to (in no specific order):
 * Make me have some fun;

@@ -3,9 +3,9 @@ def even_fib(lim):
     terms = []
     a, b = 0, 1
     while (a < lim):
-        if a % 2 == 0:
-            terms.append(a)
-        a, b = b, a + b
+        terms.append(a)
+        for i in range(3):
+            a, b = b, a + b
     return terms
 
 print(sum(even_fib(4000000)))

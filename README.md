@@ -11,6 +11,6 @@
 * Get practice with programming;
 * Get some "Muscle Memory" with Vim;
 * Learn new things;
-* Get good at using Git and Github;
+* Get good at using Git and GitHub;
 * Share my solutions to these problems;
 * Some other things.

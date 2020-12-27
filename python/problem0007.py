@@ -11,7 +11,10 @@ def prime_number_candidates(n):
 def get_more_candidates(candidates, n):
     '''Insufficient candidates, add more.'''
     for i in range(n):
-        candidates.append(candidates[-1] + 2)
+        if candidates[-1] % 6 == 1:
+            candidates.append(candidates[-1] + 4)
+        else:
+            candidates.append(candidates[-1] + 2)
     return candidates
 
 def prime_numbers(n):

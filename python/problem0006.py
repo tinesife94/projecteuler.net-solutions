@@ -11,11 +11,13 @@ def sum_of_odd_numbers(n):
     last = (2 * n) - 1
     return sum_AP(1, last, n)
 
+def sum_of_the_squares(n):
+    '''Sum of the squares of the first n natural numbers.'''
+    return (n * ((2 * n) + 1) * (n + 1)) // 6
+
 n = 100
 result = sum_of_natural_numbers(n)
-result = sum_of_odd_numbers(result)
-
-for i in range(1, n + 1):
-    result -= sum_of_odd_numbers(i)
+result **= 2
+result -= sum_of_the_squares(n)
 
 print(result)

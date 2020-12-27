@@ -26,7 +26,7 @@ def prime_numbers(n):
         for i in range(m_i + 1, len(possibles)):
             m_i = max(i, m_i)
             lim = int(math.sqrt(possibles[i]))
-            for j in range(i):
+            for j in range(2, i):
                 if possibles[j] > lim:
                     primes.append(possibles[i])
                     if (len(primes) == n):

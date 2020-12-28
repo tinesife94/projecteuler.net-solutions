@@ -23,12 +23,14 @@ thousand_digits = (
 def get_candidates(big_number, n):
     '''Returns a list of sub-strings with the greatest potential.'''
     candidates = []
-    for i in range(len(big_number) - n + 1):
-        sub = big_number[i:i+n]
-        if sub.count('0'):
+    whithout_zeros = big_number.split('0')
+    for s in whithout_zeros:
+        if len(s) < n:
             continue
-        if not candidates or sum_digits(sub) > sum_digits(candidates[-1]):
-            candidates.append(sub)
+        for i in range(len(s) - n + 1):
+            sub = s[i:i+n]
+            if not candidates or sum_digits(sub) > sum_digits(candidates[-1]):
+                candidates.append(sub)
     return candidates
 
 def sum_digits(num):

@@ -1,8 +1,9 @@
 elements = []
 for i in range(2,20):
     for v in elements:
-        if i % v == 0:
-            i //= v
+        q, r = divmod(i, v)
+        if not r:
+            i = q
             if i == 1:
                 break
     else:

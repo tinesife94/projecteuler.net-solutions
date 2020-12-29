@@ -1,7 +1,7 @@
 import math
 def p_largest_prime_factor(num, start=3, largest=1):
     '''Find the largest prime factor of an odd number'''
-    if (largest * largest > num):
+    if largest * largest > num:
         return num
     lim = int(math.sqrt(num)) + 1
     for i in range(start, lim, 2):

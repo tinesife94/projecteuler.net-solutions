@@ -2,9 +2,9 @@ def even_fib(lim):
     '''Get the even terms of the Fibonacci sequence (less than lim).'''
     terms = []
     a, b = 0, 1
-    while (a < lim):
+    while a < lim:
         terms.append(a)
-        for i in range(3):
+        for _ in range(3):
             a, b = b, a + b
     return terms
 

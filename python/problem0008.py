@@ -1,4 +1,4 @@
-thousand_digits = (
+THOUSAND_DIGITS = (
         '73167176531330624919225119674426574742355349194934'
         '96983520312774506326239578318016984801869478851843'
         '85861560789112949495459501737958331952853208805511'
@@ -36,7 +36,7 @@ def get_candidates(big_number, n):
 def sum_digits(num):
     '''Gets the sum of the digits of a number.'''
     string = str(num)
-    return sum(int(d) for d in num)
+    return sum(int(d) for d in string)
 
 def multiply_digits(num):
     '''Gets the product of the digits of a number.'''
@@ -57,7 +57,7 @@ def greatest_product(results):
     '''Get the greatest product from a list of produts.'''
     return max(results)
 
-candidates = get_candidates(thousand_digits, 13)
+candidates = get_candidates(THOUSAND_DIGITS, 13)
 results = product_results(candidates)
 greatest = greatest_product(results)
 print(greatest)

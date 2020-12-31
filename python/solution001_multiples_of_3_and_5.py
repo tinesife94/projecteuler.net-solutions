@@ -35,4 +35,12 @@ def sum_all_multiples_of_x_or_y_below_lim(x_value: int = 3, y_value: int = 5,
     return result
 
 if __name__ == "__main__":
-    print(sum_all_multiples_of_x_or_y_below_lim())
+    import sys
+    NUM_ARGS = len(sys.argv)
+    if NUM_ARGS == 4:
+        x_arg, y_arg, lim_arg = [int(arg) for arg in sys.argv[1:]]
+    elif NUM_ARGS == 2:
+        x_arg, y_arg, lim_arg = 3, 5, int(sys.argv[1])
+    else:
+        x_arg, y_arg, lim_arg = 3, 5, 1000
+    print(sum_all_multiples_of_x_or_y_below_lim(x_arg, y_arg, lim_arg))

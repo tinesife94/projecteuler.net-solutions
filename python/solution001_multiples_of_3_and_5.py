@@ -34,4 +34,5 @@ def sum_all_multiples_of_x_or_y_below_lim(x_value: int = 3, y_value: int = 5,
               - sum_terms_arithmetic_progression(x_times_y, lim, x_times_y))
     return result
 
-print(sum_all_multiples_of_x_or_y_below_lim())
+if __name__ == "__main__":
+    print(sum_all_multiples_of_x_or_y_below_lim())

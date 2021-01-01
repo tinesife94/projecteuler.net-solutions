@@ -25,8 +25,8 @@ def sum_terms_arithmetic_progression(start: int, stop: int, step: int) -> int:
     num_of_terms = ((last - start) // step) + 1
     return ((start + last) * num_of_terms) // 2
 
-def sum_all_multiples_of_x_or_y_below_lim(x_value: int = 3, y_value: int = 5,
-                                          lim: int = 1000) -> int:
+def sum_all_multiples_of_x_or_y_below_lim(x_value: int, y_value: int,
+                                          lim: int) -> int:
     """Function that solves problem 1."""
     x_times_y = x_value * y_value
     result = (sum_terms_arithmetic_progression(x_value, lim, x_value)

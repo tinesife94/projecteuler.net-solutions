@@ -29,10 +29,9 @@ def sum_all_multiples_of_x_or_y_below_lim(x_value: int, y_value: int,
                                           lim: int) -> int:
     """Function that solves problem 1."""
     x_times_y = x_value * y_value
-    result = (sum_terms_arithmetic_progression(x_value, lim, x_value)
-              + sum_terms_arithmetic_progression(y_value, lim, y_value)
-              - sum_terms_arithmetic_progression(x_times_y, lim, x_times_y))
-    return result
+    return (sum_terms_arithmetic_progression(x_value, lim, x_value)
+            + sum_terms_arithmetic_progression(y_value, lim, y_value)
+            - sum_terms_arithmetic_progression(x_times_y, lim, x_times_y))
 
 if __name__ == "__main__":
     import sys

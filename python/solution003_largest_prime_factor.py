@@ -12,8 +12,8 @@ What is the largest prime factor of the number 600851475143?
 
 import math
 
-def p_largest_prime_factor(num, start=3, largest=1):
-    '''Find the largest prime factor of an odd number'''
+def p_largest_prime_factor(num : int, start : int, largest : int) -> int:
+    """Find the largest prime factor of an odd number"""
     if largest * largest > num:
         return num
     lim = int(math.sqrt(num)) + 1
@@ -22,11 +22,13 @@ def p_largest_prime_factor(num, start=3, largest=1):
             largest = i
             while num % i == 0:
                 num //= i
+                if num == 1:
+                    return largest
             return p_largest_prime_factor(num, i + 2, largest)
     return num
 
-def largest_prime_factor(num):
-    '''Find the largest prime factor of any number'''
+def largest_prime_factor(num : int) -> int:
+    """Find the largest prime factor of any number"""
     largest = 1
     if num % 2 == 0:
         largest = 2
@@ -36,4 +38,9 @@ def largest_prime_factor(num):
                 return max(2,num)
     return p_largest_prime_factor(num, 3, largest)
 
-print(largest_prime_factor(600851475143))
+if __name__ == "__main__":
+    import sys
+    if len(sys.argv) == 1:
+        print(largest_prime_factor(600851475143))
+    elif len(sys.argv) == 2:
+        print(largest_prime_factor(int(sys.argv[1])))

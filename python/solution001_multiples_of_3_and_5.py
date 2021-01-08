@@ -41,5 +41,5 @@ if __name__ == "__main__":
     elif NUM_ARGS == 2:
         x_arg, y_arg, lim_arg = 3, 5, int(sys.argv[1])
     else:
-        x_arg, y_arg, lim_arg = 3, 5, 1000
+        x_arg, y_arg, lim_arg = 3, 5, 1_000
     print(sum_all_multiples_of_x_or_y_below_lim(x_arg, y_arg, lim_arg))

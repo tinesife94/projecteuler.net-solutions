@@ -26,7 +26,7 @@ def largest_palindrome_product_of_2_3_digit_numbers():
                 aux = i * j
                 if aux > ret:
                     ret = aux
-                elif ret - aux > 100000:
+                elif ret - aux > 100_000:
                     # Probably won't find a bigger one from now on, so:
                     return ret
     return ret

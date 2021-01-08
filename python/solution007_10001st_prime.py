@@ -58,4 +58,4 @@ def get_the_nth_prime_number(n):
     '''Get a specific prime number.'''
     return prime_numbers(n)[-1]
 
-print(get_the_nth_prime_number(10001))
+print(get_the_nth_prime_number(10_001))

@@ -41,6 +41,6 @@ def largest_prime_factor(num : int) -> int:
 if __name__ == "__main__":
     import sys
     if len(sys.argv) == 1:
-        print(largest_prime_factor(600851475143))
+        print(largest_prime_factor(600_851_475_143))
     elif len(sys.argv) == 2:
         print(largest_prime_factor(int(sys.argv[1])))

@@ -39,5 +39,5 @@ if __name__ == "__main__":
     if len(sys.argv) == 2:
         LIM = int(sys.argv[1])
     else:
-        LIM = 4000000
+        LIM = 4_000_000
     print(sum_even_valued_terms_of_fibonacci_below_lim(LIM))

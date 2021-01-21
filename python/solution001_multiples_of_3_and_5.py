@@ -14,7 +14,7 @@ Usage:
 
 python solution001_multiples_of_3_and_5.py [multiples] [limit]
 
-Exemples:
+Examples:
 
 python solution001_multiples_of_3_and_5.py 3 5 1000
 
@@ -26,10 +26,15 @@ python solution001_multiples_of_3_and_5.py
 """
 
 def sum_terms_arithmetic_progression(start: int, stop: int, step: int) -> int:
-    """Sum of terms of an arithmet progression.
+    """Sum of terms of an arithmetic progression.
 
     An efficient way to get the sum of all multiples of a number up to a
     certain stop.
+
+    Sum of all multiples of 3 up to 10 (3 + 6 + 9):
+
+    >>> sum_terms_arithmetic_progression(3, 10, 3)
+    18
     """
     try:
         last = stop - stop % step
@@ -42,7 +47,13 @@ def sum_terms_arithmetic_progression(start: int, stop: int, step: int) -> int:
 
 def sum_all_multiples_of_x_or_y_below_lim(x_value: int, y_value: int,
                                           lim: int) -> int:
-    """Find the sum of all the multiples of x_value or y_value below lim."""
+    """Find the sum of all the multiples of x_value or y_value below lim.
+
+    Sum of all multiples of 3 or 5 below 10 (3 + 5 + 6 + 9):
+
+    >>> sum_all_multiples_of_x_or_y_below_lim(3, 5, 10)
+    23
+    """
     x_times_y = x_value * y_value
     return (sum_terms_arithmetic_progression(x_value, lim, x_value)
             + sum_terms_arithmetic_progression(y_value, lim, y_value)
@@ -50,17 +61,18 @@ def sum_all_multiples_of_x_or_y_below_lim(x_value: int, y_value: int,
 
 def _solution(argv : []) -> None:
     num_args = len(argv)
-    if num_args == 4:
-        x_arg, y_arg, lim_arg = [int(arg) for arg in argv[1:]]
-    elif num_args == 3:
-        x_arg, y_arg = [int(arg) for arg in argv[1:]]
-        lim_arg = 1_000
+    if num_args == 3:
+        x_arg, y_arg, lim_arg = argv
     elif num_args == 2:
-        x_arg, y_arg, lim_arg = 3, 5, int(argv[1])
+        x_arg, y_arg, lim_arg = argv + [1_000]
+    elif num_args == 1:
+        x_arg, y_arg, lim_arg = 3, 5, argv[0]
     else:
         x_arg, y_arg, lim_arg = 3, 5, 1_000
     print(sum_all_multiples_of_x_or_y_below_lim(x_arg, y_arg, lim_arg))
 
 if __name__ == "__main__":
     import sys
-    _solution(sys.argv)
+    import doctest
+    doctest.testmod()
+    _solution([int(num) for num in sys.argv if num.isdigit()])

@@ -25,6 +25,22 @@ python solution001_multiples_of_3_and_5.py 3 5
 python solution001_multiples_of_3_and_5.py
 """
 
+def can_it_be_an_integer(candidate):
+    """Useful to check if the module parameters are valid.
+
+    >>> can_it_be_an_integer('-123')
+    True
+    >>> can_it_be_an_integer('-123.0')
+    False
+    >>> can_it_be_an_integer('abc')
+    False
+    """
+    try:
+        int(candidate)
+        return True
+    except ValueError:
+        return False
+
 def sum_terms_arithmetic_progression(start: int, stop: int, step: int) -> int:
     """Sum of terms of an arithmetic progression.
 
@@ -45,6 +61,16 @@ def sum_terms_arithmetic_progression(start: int, stop: int, step: int) -> int:
     num_of_terms = ((last - start) // step) + 1
     return ((start + last) * num_of_terms) // 2
 
+def greatest_common_divisor(num1: int, num2: int) -> int:
+    """Greatest common factor of two numbers.
+
+    >>> greatest_common_divisor(8, 12)
+    4
+    """
+    if not num2:
+        return num1
+    return greatest_common_divisor(num2, num1 % num2)
+
 def sum_all_multiples_of_x_or_y_below_lim(x_value: int, y_value: int,
                                           lim: int) -> int:
     """Find the sum of all the multiples of x_value or y_value below lim.
@@ -54,10 +80,22 @@ def sum_all_multiples_of_x_or_y_below_lim(x_value: int, y_value: int,
     >>> sum_all_multiples_of_x_or_y_below_lim(3, 5, 10)
     23
     """
-    x_times_y = x_value * y_value
-    return (sum_terms_arithmetic_progression(x_value, lim, x_value)
-            + sum_terms_arithmetic_progression(y_value, lim, y_value)
-            - sum_terms_arithmetic_progression(x_times_y, lim, x_times_y))
+    x_step = x_value
+    y_step = y_value
+    if x_step * lim < 0:
+        x_step *= -1
+    if y_step * lim < 0:
+        y_step *= -1
+    try:
+        common = (x_value * y_value) // greatest_common_divisor(x_value,
+                                                                y_value)
+        if common * lim < 0:
+            common *= -1
+    except ZeroDivisionError:
+        common = 0
+    return (sum_terms_arithmetic_progression(x_value, lim, x_step)
+            + sum_terms_arithmetic_progression(y_value, lim, y_step)
+            - sum_terms_arithmetic_progression(common, lim, common))
 
 def _solution(argv : []) -> None:
     num_args = len(argv)
@@ -75,4 +113,4 @@ if __name__ == "__main__":
     import sys
     import doctest
     doctest.testmod()
-    _solution([int(num) for num in sys.argv if num.isdigit()])
+    _solution([int(num) for num in sys.argv if can_it_be_an_integer(num)])
